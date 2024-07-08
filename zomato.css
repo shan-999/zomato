@@ -1,0 +1,408 @@
+body{
+    margin: 0;
+}
+.header-bar{
+    width: 70%;
+    height: 150px;
+    position: relative;
+    left: 15%;
+}
+
+
+.header-logo{
+    width: 130px;
+    height: 25px;
+    position: absolute;
+    top: 30px;
+}
+
+
+.h-search-bar{
+    width: 400px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 160px;
+}
+.h-search-disp{
+    display: flex;
+    border: solid 2px;
+    border-color: #f7f7f7;
+    border-radius: 0.8rem;
+    width: 700px;
+    box-shadow: 0 -2px 50px rgba(0, 0, 0, 0.1);
+}
+.h-search-logo{
+    width: 20px;
+    height: 55px;
+}
+.h-search-searching{
+    width: 300px;
+    height: 55px;
+    font-size:14px;
+    border: 0px;
+    outline: 0px; 
+    font-family: Okra, Helvetica, sans-serif;
+    font-weight: 300;
+    -webkit-box-align: center;
+    
+}
+.h-search{
+    padding-left: 10px;
+}
+.h-search-select:hover{
+    background-color: transparent;
+}
+
+
+.h-login-signup-md{
+    position: absolute;
+    display: flex;
+    right: 0;
+    top: 30px;
+}
+.h-login-signup-bt{
+    width: 75px;
+    height: 30px;
+    font-size: 18px;
+    color: #ababab;
+    font-family:  Helvetica, sans-serif;
+    border: none;
+    background-color: #fff;
+    margin-left: 5px;
+    font-weight:300;
+    cursor: pointer;
+    border-radius: 0.6rem;
+
+}
+.h-login-signup-bt:hover{
+    color: black;
+
+}
+.h-login-signup-bt:active{
+    border: solid 1px;
+    border-color: red;
+}
+
+
+.h-p-tag-m{
+    position: absolute;
+    top: 100px;
+}
+.h-p-tag{
+    color: rgb(130, 130, 130);
+}
+.h-p-tag-last{
+    color: #dcdcdc;
+}
+.h-p-tag:hover{
+    color: red;
+}
+
+
+.h-op-bar{
+    width: 1080px;
+    height: 50px;
+    /* position: -webkit-sticky; */
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin-left: 210px;
+}
+.h-op-bt{
+    width: 85px;
+    height: 30px;
+    color: rgb(156, 156, 156);
+    margin-left: 15px;
+    border: solid 1px;
+    border-color: #e3e3e3;
+    border-radius: 0.8rem;
+    background-color: white;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    cursor: pointer;
+}
+.h-op-bt:hover{
+    background-color: rgb(221, 219, 219);
+}
+.h-op-bar-m{
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1000;
+}
+
+
+.inspiration-main{
+    position: relative;
+}
+.inspiration{
+    width: 70%;
+    height: 200px;
+    position: absolute;
+    left: 15%;
+    top: 35px;
+}
+.inspiration-img-m{
+    display: flex;
+}
+.inspriration-img{
+    width: 130px;
+    height: 130px;
+    border-radius: 80px;
+}
+.inspriration-imges{
+    width: 130px;
+    height: 130px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-top: 30px;
+    font-family:  Helvetica, sans-serif;
+    color: #5f5f5f;
+}
+
+
+
+
+.food-bar-main{
+    width: 100%;
+    height: 3000px;
+}
+.food-bar{
+    width: 74%;
+    /* height: 970px; */
+    position: absolute;
+    left: 13%;
+    background-color: white;
+    margin-top: 50px;
+    
+}
+.food-bar-head{
+    font-family:  Helvetica, sans-serif;
+    font-size:30px;
+    color:rgb(28, 28, 28);
+}
+.food-sec-m{
+    width: 100%;
+    /* height: 1500px; */
+    position: relative;
+}
+.food-sec{
+    width: 100%;
+    /* height: 1500px; */
+    background-color: white;
+    display: flex;
+}
+.food-details{
+    width: 330px;
+    height: 320px;
+    position: relative;
+    margin: 50px 20px 0px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    
+}
+.food-details:hover{
+    border-color: #000000;
+    box-shadow: 0 -2px 50px rgba(0, 0, 0, 0.1);
+}
+.food-img{
+    width: 300px;
+    height: 220px;
+    border-radius: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+.food-res-rat{
+    width: 300px;
+    position: absolute;
+    bottom: 35px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+}
+.food-name-price{
+    width: 330px;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    display: flex;
+}
+.food-time{
+    height: 30px;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+.food-offer{
+    width: 70px;
+    height: 20px;
+    background-color: #256fef;
+    position: absolute;
+    left: 15px;
+    bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1;
+}
+.food-price{
+    position: absolute;
+    bottom: 0;
+    right: 35px;
+}
+.food-rat{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+
+
+
+.end-bar-main{
+    height: 420px;
+}
+.end-bar-m{
+    width: 45%;
+    position: absolute;
+    left: 28%;
+    margin-top: 70px;
+}
+.end-bar{
+    display: flex;
+    align-items: center;
+}
+.end-img{
+    width: 300px;
+    height: 300px;
+}
+
+
+
+
+.explore-bar-main{
+    height: 500px;
+}
+.explore-bar-m{
+    width: 70%;
+    position: absolute;
+    left: 13%;
+}
+.expo-content{
+    width: 100%;
+    height: 15px;
+    display: flex;
+    border: solid;
+    position: relative;
+    font-size: 20px;
+    padding: 20px;
+    align-items: center;
+    border-radius: 13px;
+    border-color: #f3f3f3;
+    box-shadow: 0 -2px 50px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    cursor: pointer;
+}
+.expo-content:hover{
+    background-color: rgb(200, 194, 194);
+    box-shadow: 0 -2px 50px rgba(0, 0, 0, 0.1);
+}
+.expo-content-img{
+    position: absolute;
+    right: 10px;
+}
+
+
+
+
+.footer-bar-main{
+    height: 500px;
+    background-color: #f8f8f8;
+}
+.footer-bar-m{
+    width: 74%;
+    position: absolute;
+    left: 13%;
+}
+/* .foot-bar{
+    position: relative;
+} */
+.foot-logo-btns{
+    position: relative;
+}
+.foot-logo{
+    position: absolute;
+    top: 50px;
+}
+.f-btn-idi-lan{
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 70px;
+}
+.f-btn{
+    display: flex;
+    display: flex;
+    width: 100px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.foot-content-main{
+    position: relative;
+}
+.foot-content{
+    position: absolute;
+    top: 155px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.foot-content1{
+    position: absolute;
+    top: 155px;
+    left: 200px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.foot-content2{
+    position: absolute;
+    top: 155px;
+    left: 390px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.foot-content3{
+    position: absolute;
+    top: 155px;
+    left: 640px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.foot-bar{
+    position: relative;
+}
+.logos{
+    cursor: pointer;
+}
+.another-logos{
+    position: absolute;
+    right: 50px;
+    top: 150px;
+    cursor: pointer;
+}
+.foot-discription{
+    position: absolute;
+    top: 430px;
+    left: 30px;
+    color: #a2a2a2;
+    border-top: 1px solid #d7d7d7;
+}

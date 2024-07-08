@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato</title>
+    <link rel="icon"  href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAdVBMVEXiN0T////jO0jiNULhLDviMT/hKjn0wsXhJjbhIzT42tzoaXLgHjDgGy7gFCn76On++fn64uTul5387u/3zdD41Nbxq6/kSlXzt7vqeH/98/TnYmvmWGLtkJbxp6vrgYjfAB7kQ0/eABPsiY/vn6PlUVvpcXgMZ7sgAAAGWklEQVR4nO2c25qjKhBGUQ6K4jFGjSYxTid5/0ecQik1dvbX7JvpXPBfTCPhsKCKKpzpCfGi2P8oxZFHIs4o+SBRxiMSs9/G2IvFxP+ofdKiPvF/m+G7HJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStHJStfgOK/vSv1v8cinLlkx+o/jEUFay5ZuNHQSXjpfK87if7/VMofu08UMR/GWq7KZRmmskLfvqdEVsoyv9zedtPtmXKRcg4/MHxw8fE5NVi25sJITh50StUmCgpZTgJCkqZ4WVKH2c/VXwZKFRpqsemIm36MZ1QqFLnnitDlKj+UrdB0F7jhE+f/hlmqMufNE3nViIdT5fLcE7C7ZJfoGjZ1td7aXS/1q2cej7uRZfnXdY+hO7Lz6ehrKusDgFvKPI8P/owLSPXA7SqdRtG+/aQzwxeXpwFoWNbzdbzimMUVWLa1yHKdas8u3D+Hor6hbfTDXqKK47u5Ve9J6qen1rB/GouwhwyNr1LQXhcvQyTPxnvu21NBMsNz5tWx5G/hxoPO6buRlgTbWu0P6irgVJNhg17GS/DE8qG/UCKPfNtRRsSEb80KXz+DgodcdXhRv3otWpg606ly2f587HMmTWU+vvlndTXy3MpWJ+/NmnFOyj2ig66SlHtqg4JSdq5eG+X2jzOljJAkTSAn8ElPg+mf53eX9cm2J7ba/gbKHnftWqFRDu0Jc7a88RM1K5L7YK1VwFZhJ2iwU8l4+Ft7temX5XxuSyoqqDH7YaR0dlK+QZKfMHZu99L3IAg5b5BuSeyMX1rJYzVcu94XtfRjob1qPMtF4xCbOPUOGArOe5VmULAYej3QyLRa47pu5AgdJRKiVnRkVJmHCGTlAizGZUa8ZBGPDnhbl1latYeTPGLJTfRnB/+H4Qiwiz2JDZWieB84yKz5B3U5O14BIsbJaEBucDGSjPmUZ5Ni27k4rKskirT+A6NhX8KOtzPaYSQsONccdauczNjnCDl4HIzTAd7KM4RW8cN2a3jyBqh8HBfQxKayvzJiTCTDoKo5+7MwvZQ49m5vrhQPlcfzvCAW5iJ91AL04FxHU3Ngx4nNF2D1Ni0A99hZpFHBVHOWPXBlxOTL0dhhF0wU2uXw4Me6d+dZMYZo7c+RSjaq+vZJnAV0JVyPNw3MyX4JSVmd8C+FK0qxWkutEMcP80KFMXBjtpIwpxq8FtwvwiX+w6KSsOUP8Jp384bKIze8W31nSUHPDjhxqrgi8XcKYXTF85DQGpAjuniIr5WQrSH9yXeQFFp8kd3SmA8zngzP2vz4fI9hXEcfGfJAdqSOOlt5nhOUceEI7AM2lQnKoqjafMtsb6h36EwpIAHxyfQ8OUzUxGHXBqPaWVqHKXni2scYGNxReXscx2ZLxTzVgaQB8wGl4qrkZrV5D1jGAuDd2lG4vEG/8wnFxXKkETjuDgbD03pASEDrQBQOOkzLaefcM2hLDU+d5UEi9V4rjOCKzvy0dTDTeI7VPiaMT3tHWKfePQ60dHAppgFdS69zVbNzyY1FX3Il8gA7pJuokQhkjVvGtXo5luo5NtlKkjoY5c1K0kRvgIfTc2JvGuoOaZlDTpaVxQ5BgWIkckmtQdid70yyekblMq8nS5wc3u9GAXQU63ZhIbZshE0XAYXa3buhnlVMV+Cr9ZV7A1zJO9unssEq3QKCMv1KpC3+s6KgbuWcPjypSVaNYA78gOHKvqnh1B4lPVAX0wfq819KvC37w4rFNc3io2qSqcAonqTxA5Bn+gE4dfz5xqkn4stpCEsQ6AgzG+jriuCi1LDsdKasslpdpConqOg6qsZqwue6cur0mo+6sNVQ7/vgBhjOqpN9Zw1z0t5iRvGDD2bNL2hzMXp/yPQtRouLn7TjFy/otBZupb5/fMUP3x8o4I4eCrv5bPhuxfBbZyir2+OywPl+gL0/37BfyFZmeb18M0kEDNCGfJvb/Hu76ds5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5aBs5X/mF0J+5FdnfuSXjH7i17H+BUoGWH/lJW1TAAAAAElFTkSuQmCC">
+    <link rel="stylesheet" href="zomato.css">
+</head>
+<body>
+    <div class="main">
+
+
+
+        <div class="header-bar-main" style="background-color: rgb(255,255,255);">
+            <div class="header-bar">
+                <div class="header-logo">
+                    <img class="h-logo-img" src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png" style="width: 130px; height: 25px;">
+                </div>
+                <div class="h-search-bar">
+                    <div class="h-search-disp">
+                        <div class="h-search"><i size="20"><svg class="h-search-logo" xmlns="http://www.w3.org/2000/svg" fill="#FF7E8B" width="20" height="20" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-"  ><title>location-fill</title><path d="M10.2 0.42c-4.5 0-8.2 3.7-8.2 8.3 0 6.2 7.5 11.3 7.8 11.6 0.2 0.1 0.3 0.1 0.4 0.1s0.3 0 0.4-0.1c0.3-0.2 7.8-5.3 7.8-11.6 0.1-4.6-3.6-8.3-8.2-8.3zM10.2 11.42c-1.7 0-3-1.3-3-3s1.3-3 3-3c1.7 0 3 1.3 3 3s-1.3 3-3 3z"></path></svg></i></div>
+                        <div class="h-search"><select class="h-search-searching">
+                            <option class="h-search-select"><svg xmlns="http://www.w3.org/2000/svg" fill="#FF7E8B" width="20" height="20" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iRDDBk"><path d="M10.2 0.42c-4.5 0-8.2 3.7-8.2 8.3 0 6.2 7.5 11.3 7.8 11.6 0.2 0.1 0.3 0.1 0.4 0.1s0.3 0 0.4-0.1c0.3-0.2 7.8-5.3 7.8-11.6 0.1-4.6-3.6-8.3-8.2-8.3zM10.2 11.42c-1.7 0-3-1.3-3-3s1.3-3 3-3c1.7 0 3 1.3 3 3s-1.3 3-3 3z"></path></svg>CP Bazar,Palayam,Khozil</option>
+                            <option class="h-search-select">Paragon Restaurant,palayam</option>
+                        </select></div>
+                        <div style="width: 1px; height: 30px; background-color: #d5d5d5; margin-top: 10px;" class="h-search-vline"></div>
+                        <div class="h-search"><svg class="h-search-logo" xmlns="http://www.w3.org/2000/svg" fill="#828282" width="18" height="18" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img"><title>Search</title><path d="M19.78 19.12l-3.88-3.9c1.28-1.6 2.080-3.6 2.080-5.8 0-5-3.98-9-8.98-9s-9 4-9 9c0 5 4 9 9 9 2.2 0 4.2-0.8 5.8-2.1l3.88 3.9c0.1 0.1 0.3 0.2 0.5 0.2s0.4-0.1 0.5-0.2c0.4-0.3 0.4-0.8 0.1-1.1zM1.5 9.42c0-4.1 3.4-7.5 7.5-7.5s7.48 3.4 7.48 7.5-3.38 7.5-7.48 7.5c-4.1 0-7.5-3.4-7.5-7.5z"></path></svg></div>
+                        <div class="h-search"><input class="h-search-searching" type="search" placeholder="Search for restaurant"></div>
+                    </div>
+                </div>
+                <div class="h-login-signup-md">
+                    <div class="h-login-signup">
+                        <button class="h-login-signup-bt">Log in</button>
+                    </div>
+                    <div class="h-login-signup">
+                        <button class="h-login-signup-bt">sign up</button>
+                    </div>
+                </div>
+                <div class="h-p-tag-m">
+                    <a style="text-decoration: none;" href="zomato.html"><span class="h-p-tag">Home </span><span>/</span><span class="h-p-tag"> India </span><span>/</span><span class="h-p-tag"> Kozhikod </span><span>/</span><span class="h-p-tag-last"> Ummalathoor Restaurants</span></a>
+                </div>
+                
+            </div>
+        </div>
+    
+
+
+        <div class="h-op-bar-m">
+            <div class="h-op-bar">
+                <button class="h-op-bt"><svg xmlns="http://www.w3.org/2000/svg" fill="#9C9C9C" width="18" height="18" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iwHbVQ"><title>filter</title><path d="M2.14 6.42h7.26c0.353 1.207 1.45 2.074 2.75 2.074s2.397-0.867 2.745-2.054l0.005-0.020h2.96c0.343-0.059 0.6-0.355 0.6-0.71s-0.258-0.651-0.596-0.709l-0.004-0.001h-2.94c-0.341-1.226-1.447-2.11-2.76-2.11s-2.419 0.885-2.755 2.090l-0.005 0.020h-7.26c-0.343 0.059-0.6 0.355-0.6 0.71s0.257 0.651 0.596 0.709l0.004 0.001zM12.16 4.28c0.776 0.011 1.4 0.643 1.4 1.42 0 0.784-0.636 1.42-1.42 1.42-0.777 0-1.409-0.624-1.42-1.399l-0-0.001c-0-0.006-0-0.013-0-0.020 0-0.784 0.636-1.42 1.42-1.42 0.007 0 0.014 0 0.021 0l-0.001-0zM17.86 13.58h-7.24c-0.328-1.245-1.443-2.148-2.77-2.148s-2.442 0.903-2.766 2.128l-0.004 0.020h-2.94c-0.036-0.006-0.077-0.010-0.12-0.010-0.398 0-0.72 0.322-0.72 0.72s0.322 0.72 0.72 0.72c0.042 0 0.084-0.004 0.124-0.011l-0.004 0.001h2.96c0.353 1.207 1.45 2.074 2.75 2.074s2.397-0.867 2.745-2.054l0.005-0.020h7.26c0.343-0.059 0.6-0.355 0.6-0.71s-0.258-0.651-0.596-0.709l-0.004-0.001zM7.84 15.72c-0.776-0.011-1.4-0.643-1.4-1.42 0-0.784 0.636-1.42 1.42-1.42 0.777 0 1.409 0.624 1.42 1.399l0 0.001c0 0.006 0 0.013 0 0.020 0 0.784-0.636 1.42-1.42 1.42-0.007 0-0.014-0-0.021-0l0.001 0z"></path></svg> Filters</button>
+                <button class="h-op-bt">Rating:4.0+</button>
+                <button class="h-op-bt">Puer veg</button>
+                <button class="h-op-bt">Cuisines <svg xmlns="http://www.w3.org/2000/svg" fill="#9C9C9C" width="18" height="18" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iwHbVQ"><title>chevron-down</title><path d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z"></path></svg></button>    
+            </div>        
+        </div> 
+    
+       
+    
+
+        <div class="inspiration-main" style="width: 100%; height: 300px; background-color: #f8f8f8;">
+            <div class="inspiration">
+                <span style="color: #1c1c1c; font-size:30px; font-family: Okra, Helvetica, sans-serif; ">Inspiration for your first order</span>
+                <div class="inspiration-img-m">
+                    <div class="inspriration-imges">
+                        <img class="inspriration-img" src="https://b.zmtcdn.com/data/o2_assets/e444ade83eb22360b6ca79e6e777955f1632716661.png" alt="">
+                        <span style="margin-top: 10px;">Fried Rice</span>    
+                    </div>
+                    <div class="inspriration-imges">
+                        <img class="inspriration-img" src="https://b.zmtcdn.com/data/dish_images/ccb7dc2ba2b054419f805da7f05704471634886169.png" alt="">
+                        <span style="margin-top: 10px;">Burger</span>
+                    </div>
+                    <div class="inspriration-imges" class="inspriration-img">
+                        <img class="inspriration-img" src="https://b.zmtcdn.com/data/dish_images/197987b7ebcd1ee08f8c25ea4e77e20f1634731334.png" alt="">
+                        <span style="margin-top: 10px;">Chicken</span>           
+                    </div>
+                    <div class="inspriration-imges">
+                        <img class="inspriration-img" src="https://b.zmtcdn.com/data/o2_assets/d0bd7c9405ac87f6aa65e31fe55800941632716575.png" alt="">
+                        <span style="margin-top: 10px;">Pizza</span>
+                    </div>
+                    <div class="inspriration-imges">
+                        <img class="inspriration-img" src="https://b.zmtcdn.com/data/o2_assets/019409fe8f838312214d9211be010ef31678798444.jpeg" alt="">
+                         <span style="margin-top: 10px;">North Indian</span>
+                    </div>
+                    <div class="inspriration-imges">       
+                        <img class="inspriration-img" src="https://b.zmtcdn.com/data/dish_images/d5ab931c8c239271de45e1c159af94311634805744.png" alt="">
+                        <span style="margin-top: 10px;">Cake</span>                    
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+
+        <div class="food-bar-main">
+            <div class="food-bar">
+                <span class="food-bar-head">Food Delivery Restaurants in Ummalathoor</span>
+                <div class="food-sec-m">
+
+
+                    <div class="food-sec">
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>₹50 OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/3/20903443/ef263eed0ab8881965e2dc5f53e8556b_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Topform Restaurant-Chevay</h4>
+                                <p class="food-rat">4.1<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Kerala,Chinese</p>
+                                <p class="food-price">₹400 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>29 min</p>
+                            </div>                           
+                        </div>
+
+                        <div class="food-details">
+                            <!-- <div class="food-offer">
+                                <p>₹50 OFF</p>
+                            </div> -->
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/7/20535147/0bdf8af7e67ed15e1e412c3709bf8ff6_o2_featured_v2.jpg?output-format=webp" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Vinayaka The Premium Veg</h4>
+                                <p class="food-rat">4.3<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>South Indian, Kerala</p>
+                                <p class="food-price">₹100 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>24 min</p>
+                            </div>
+                        </div>
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>20% OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/8/20126138/0ca82a9d11f01b4e5be3780f8fd40a81_o2_featured_v2.jpg?output-format=webp" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Pure South</h4>
+                                <p class="food-rat">4.2<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>South Indian</p>
+                                <p class="food-price">₹120 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>20 min</p>
+                            </div>                           
+                        </div>
+
+                    </div>
+
+
+                    <div class="food-sec">
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>₹150 OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/4/20946634/506a8755a4bdff34050e523ca779ed05_o2_featured_v2.jpg?output-format=webp" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Kappi Koottam</h4>
+                                <p class="food-rat">4.0<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>South Indian, Chinese</p>
+                                <p class="food-price">₹100 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>28 min</p>
+                            </div>                          
+                        </div>
+
+                        <div class="food-details">
+                            <!-- <div class="food-offer">
+                                <p>₹50 OFF</p>
+                            </div> -->
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/4/19706234/70a3c9ed361e70da076799faefac0269_o2_featured_v2.jpg?output-format=webp" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>TopForm Restaurant</h4>
+                                <p class="food-rat">4.2<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Kerala,Chinese</p>
+                                <p class="food-price">₹130 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>21 min</p>
+                            </div>
+                        </div>
+
+                        <div class="food-details">
+                            <!-- <div class="food-offer">
+                                <p>₹40 OFF</p>
+                            </div> -->
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/6/19736156/92237989e8a919c0fcfdf3d9f8da3fb0_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>McDonald's</h4>
+                                <p class="food-rat">4.3<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Burger, Fast Food, Cafe</p>
+                                <p class="food-price">₹200 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>19 min</p>
+                            </div>                       
+                        </div>
+
+                    </div>
+
+
+                    <div class="food-sec">
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>₹50 OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/2/20795742/a4bf22c51e3f0eefa9367060caa79246_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Shero Home Food - Andhra</h4>
+                                <p class="food-rat">4.1<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>South Indian, Healthy</p>
+                                <p class="food-price">₹220 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>32 min</p>
+                            </div>                        
+                        </div>
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>20% OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/9/20475229/d6c29df5de14e360b0eb921e37744487_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Hotel Anhar</h4>
+                                <p class="food-rat">3.8<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Beef curry, Kerala</p>
+                                <p class="food-price">₹150 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>13 min</p>
+                            </div>
+                        </div>
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>₹130 OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/6/19359666/995628a1f0069b6ee92c6d595ce50b23_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Hotel Sarovar</h4>
+                                <p class="food-rat">3.2<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>porotta,Kerala</p>
+                                <p class="food-price">₹100 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>25 min</p>
+                            </div>                  
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="food-sec">
+
+                        <div class="food-details">
+                            <!-- <div class="food-offer">
+                                <p>₹30 OFF</p>
+                            </div> -->
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/6/19100276/5225c1c78c9e97b4dfe499543424e488_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Ivy9 restaurant</h4>
+                                <p class="food-rat">3.4<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Chinese, North Indian</p>
+                                <p class="food-price">₹199 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>30 min</p>
+                            </div>                     
+                        </div>
+
+                        <div class="food-details">
+                            <!-- <div class="food-offer">
+                                <p>₹50 OFF</p>
+                            </div> -->
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/0/20631620/d9a4c442feb964a044b5d3f2d6898b26_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Topform Restaurant-Chevay</h4>
+                                <p class="food-rat">4.1<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Kerala,Chinese</p>
+                                <p class="food-price">₹400 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>29 min</p>
+                            </div>
+                        </div>
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>₹120 OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/5/19319745/d3a87d6dd384b4cc259a8083865d6c37_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Samudra The Meal House</h4>
+                                <p class="food-rat">3.4<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Seafood, Biryani</p>
+                                <p class="food-price">₹130 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>23 min</p>
+                            </div>                          
+                        </div>
+
+                    </div>
+
+
+                    <div class="food-sec">
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>₹50 OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/3/20903443/ef263eed0ab8881965e2dc5f53e8556b_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Topform Restaurant-Chevay</h4>
+                                <p class="food-rat">4.1<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Kerala,Chinese</p>
+                                <p class="food-price">₹400 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>29 min</p>
+                            </div>                           
+                        </div>
+
+                        <div class="food-details">
+                            <!-- <div class="food-offer">
+                                <p>₹50 OFF</p>
+                            </div> -->
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/7/20535147/0bdf8af7e67ed15e1e412c3709bf8ff6_o2_featured_v2.jpg?output-format=webp" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Vinayaka The Premium Veg</h4>
+                                <p class="food-rat">4.3<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>South Indian, Kerala</p>
+                                <p class="food-price">₹100 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>24 min</p>
+                            </div>
+                        </div>
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>20% OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/8/20126138/0ca82a9d11f01b4e5be3780f8fd40a81_o2_featured_v2.jpg?output-format=webp" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Pure South</h4>
+                                <p class="food-rat">4.2<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>South Indian</p>
+                                <p class="food-price">₹120 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>20 min</p>
+                            </div>                           
+                        </div>
+
+                    </div>
+
+
+                    <div class="food-sec">
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>₹150 OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/4/20946634/506a8755a4bdff34050e523ca779ed05_o2_featured_v2.jpg?output-format=webp" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Kappi Koottam</h4>
+                                <p class="food-rat">4.0<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>South Indian, Chinese</p>
+                                <p class="food-price">₹100 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>28 min</p>
+                            </div>                          
+                        </div>
+
+                        <div class="food-details">
+                            <!-- <div class="food-offer">
+                                <p>₹50 OFF</p>
+                            </div> -->
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/4/19706234/70a3c9ed361e70da076799faefac0269_o2_featured_v2.jpg?output-format=webp" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>TopForm Restaurant</h4>
+                                <p class="food-rat">4.2<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Kerala,Chinese</p>
+                                <p class="food-price">₹130 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>21 min</p>
+                            </div>
+                        </div>
+
+                        <div class="food-details">
+                            <!-- <div class="food-offer">
+                                <p>₹40 OFF</p>
+                            </div> -->
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/6/19736156/92237989e8a919c0fcfdf3d9f8da3fb0_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>McDonald's</h4>
+                                <p class="food-rat">4.3<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Burger, Fast Food, Cafe</p>
+                                <p class="food-price">₹200 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>19 min</p>
+                            </div>                       
+                        </div>
+
+                    </div>
+
+
+                    <div class="food-sec">
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>₹50 OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/2/20795742/a4bf22c51e3f0eefa9367060caa79246_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Shero Home Food - Andhra</h4>
+                                <p class="food-rat">4.1<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>South Indian, Healthy</p>
+                                <p class="food-price">₹220 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>32 min</p>
+                            </div>                        
+                        </div>
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>20% OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/9/20475229/d6c29df5de14e360b0eb921e37744487_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Hotel Anhar</h4>
+                                <p class="food-rat">3.8<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Beef curry, Kerala</p>
+                                <p class="food-price">₹150 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>13 min</p>
+                            </div>
+                        </div>
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>₹130 OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/6/19359666/995628a1f0069b6ee92c6d595ce50b23_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Hotel Sarovar</h4>
+                                <p class="food-rat">3.2<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>porotta,Kerala</p>
+                                <p class="food-price">₹100 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>25 min</p>
+                            </div>                  
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="food-sec">
+
+                        <div class="food-details">
+                            <!-- <div class="food-offer">
+                                <p>₹30 OFF</p>
+                            </div> -->
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/6/19100276/5225c1c78c9e97b4dfe499543424e488_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Ivy9 restaurant</h4>
+                                <p class="food-rat">3.4<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Chinese, North Indian</p>
+                                <p class="food-price">₹199 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>30 min</p>
+                            </div>                     
+                        </div>
+
+                        <div class="food-details">
+                            <!-- <div class="food-offer">
+                                <p>₹50 OFF</p>
+                            </div> -->
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/0/20631620/d9a4c442feb964a044b5d3f2d6898b26_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Topform Restaurant-Chevay</h4>
+                                <p class="food-rat">4.1<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Kerala,Chinese</p>
+                                <p class="food-price">₹400 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>29 min</p>
+                            </div>
+                        </div>
+
+                        <div class="food-details">
+                            <div class="food-offer">
+                                <p>₹120 OFF</p>
+                            </div>
+                            <div class="food-img-div">
+                                <img class="food-img" src="https://b.zmtcdn.com/data/pictures/5/19319745/d3a87d6dd384b4cc259a8083865d6c37_o2_featured_v2.jpg" alt="">
+                            </div>
+                            <div class="food-res-rat">
+                                <h4>Samudra The Meal House</h4>
+                                <p class="food-rat">3.4<svg xmlns="http://www.w3.org/2000/svg" fill="#3AB757" width="0.8rem" height="0.8rem" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 fauQLv"><title>star-fill</title><path d="M6.76 6.8l-6.38 0.96c-0.22 0.040-0.38 0.22-0.38 0.44 0 0.12 0.040 0.24 0.12 0.32v0l4.64 4.76-1.1 6.66c0 0.020 0 0.040 0 0.080 0 0.24 0.2 0.44 0.44 0.44 0.1 0 0.16-0.020 0.24-0.060v0l5.7-3.12 5.68 3.12c0.060 0.040 0.14 0.060 0.22 0.060 0.24 0 0.44-0.2 0.44-0.44 0-0.040 0-0.060 0-0.080v0l-1.1-6.66 4.64-4.76c0.080-0.080 0.12-0.2 0.12-0.32 0-0.22-0.16-0.4-0.36-0.44h-0.020l-6.38-0.96-2.96-6.18c-0.060-0.12-0.18-0.2-0.32-0.2s-0.26 0.080-0.32 0.2v0z"></path></svg></p>
+                            </div>
+                            <div class="food-name-price">
+                                <p>Seafood, Biryani</p>
+                                <p class="food-price">₹130 for one</p>
+                            </div>
+                            <div class="food-time">
+                                <p>23 min</p>
+                            </div>                          
+                        </div>
+
+                    </div>
+
+
+                    
+                </div>
+                
+
+
+
+            </div>
+        </div>
+
+        <div class="end-bar-main">
+            <div class="end-bar-m">
+                <div class="end-bar">
+                      <div><h1>End of search results</h1></div>
+                      <div><img class="end-img" src="https://b.zmtcdn.com/web/assets/search/6d548ba48f0e4e4b46c19ad4b15a3f011615379209.jpeg" alt=""></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="explore-bar-main">
+            <div class="explore-bar-m">
+                <div class="expo-content-m">
+                    <div class="expo-head">
+                        <h1>Explore options near me</h1>
+                    </div>
+                    <div class="expo-content">
+                            <div class="expo-content-lab">
+                                <p>Popular cuisines near me</p>
+                            </div>
+                            <div class="expo-content-img">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#9C9C9C" width="18" height="18" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iwHbVQ"><title>chevron-down</title><path d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expo-content">
+                        <div class="expo-content-lab">
+                            <p>Top Restaurant Chains</p>
+                        </div>
+                        <div class="expo-content-img">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#9C9C9C" width="18" height="18" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iwHbVQ"><title>chevron-down</title><path d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="expo-content">
+                        <div class="expo-content-lab">
+                            <p>Popular restaurant types near me</p>
+                        </div>
+                        <div class="expo-content-img">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#9C9C9C" width="18" height="18" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iwHbVQ"><title>chevron-down</title><path d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="expo-content">
+                        <div class="expo-content-lab">
+                            <p>Cities We Deliver To</p>
+                        </div>
+                        <div class="expo-content-img">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#9C9C9C" width="18" height="18" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iwHbVQ"><title>chevron-down</title><path d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer-bar-main">
+            <div class="footer-bar-m">
+                <div class="foot-bar">
+                    <div class="foot-logo-btns">
+                        <div class="foot-logo">
+                            <img style="width: 150px; height: 35px;" src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png?fit=around|198:42&crop=198:42;*,*" alt="">
+                        </div>
+                        <div class="f-btn-idi-lan">
+                            <button class="f-btn"><img style="width: 20px; height: 20px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png?20240117202436" alt="">India<svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="20" height="20" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iRDDBk"><title>chevron-down</title><path d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z"></path></svg></button>
+                            <button style="margin-left: 30px;" class="f-btn"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000000"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Zm0-82q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z"/></svg>English<svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="20" height="20" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iRDDBk"><title>chevron-down</title><path d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z"></path></svg></button>
+                        </div>
+                    </div>
+                    <div class="foot-content-main">
+                        <div class="foot-content">
+                            <p style="margin-left: 30px;  font-size: 15px;">ABOUT ZOMATO</p>
+                            <ul style="list-style-type: none; color: #a2a2a2;">
+                                <li>Who We Are</li>
+                                <li>Blog</li>
+                                <li>Work With Us</li>
+                                <li>Investor Relations</li>
+                                <li>Report Fraud</li>
+                                <li>Press Kit</li>
+                                <li>Contact Us</li>
+                            </ul>
+                        </div>
+                        <div class="foot-content1">
+                            <p style="margin-left: 30px;  font-size: 15px;">ZOMAVERSE</p>
+                            <ul style="list-style-type: none; color: #a2a2a2;">
+                                <li>Zomato</li>
+                                <li>Blinkit</li>
+                                <li>Feeding India</li>
+                                <li>Hyperpure</li>
+                                <li>Report Fraud</li>
+                                <li>Zomaland</li>
+                                <li>Weather Union</li>
+                            </ul>
+                        </div>
+                        <div class="foot-content2">
+                            <p style="margin-left: 30px;  font-size: 15px;">FOR RESTAURANTS</p>
+                            <ul style="list-style-type: none; color: #a2a2a2;">
+                                <li>Partner With Us</li>
+                                <li>Apps For You</li>
+                            </ul>
+                        </div>
+                        <div class="foot-content3">
+                            <p style="margin-left: 30px;  font-size: 15px;">LEARN MORE</p>
+                            <ul style="list-style-type: none; color: #a2a2a2;">
+                                <li>Privacy</li>
+                                <li>Security</li>
+                                <li>Terms</li>
+                                <li>Sitemap</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="another-logos">
+                        <div class="logos-label">
+                            <p style="font-size: 15px;">SOCIAL LINKS</p>
+                        </div>
+                        <div class="logos">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="22" height="22" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 cvuzKA"><path d="M0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10ZM7.0625 8.375H4.75V15.4375H7.0625V8.375ZM7.25 6.1875C7.25 5.5 6.75 5 5.9375 5C5.125 5 4.5625 5.5 4.5625 6.1875C4.5625 6.875 5.0625 7.4375 5.875 7.4375C6.6875 7.4375 7.25 6.875 7.25 6.1875ZM15.5 11.375C15.5 9.1875 14.3125 8.1875 12.8125 8.1875C11.5625 8.1875 11 8.875 10.6875 9.375V8.375H8.375C8.375 9.0625 8.375 15.4375 8.375 15.4375H10.6875V11.5C10.6875 11.3125 10.6875 11.0625 10.75 10.9375C10.9375 10.5 11.3125 10.0625 11.9375 10.0625C12.75 10.0625 13.125 10.6875 13.125 11.6875V15.4375H15.4375C15.5 15.4375 15.5 11.375 15.5 11.375Z"></path></svg>
+                            <svg style="margin-left: 5px;" xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="22" height="22" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 cvuzKA"><path d="M0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10ZM10.1875 5C8.8125 5 8.625 5 8.0625 5C7.5 5.0625 7.125 5.125 6.8125 5.25C6.5 5.375 6.1875 5.5625 5.875 5.875C5.5625 6.1875 5.375 6.4375 5.25 6.8125C5.125 7.125 5 7.5 5 8.0625C5 8.625 5 8.75 5 10.1875C5 11.625 5 11.8125 5.0625 12.375C5.0625 12.9375 5.1875 13.3125 5.3125 13.625C5.4375 13.9375 5.625 14.25 5.9375 14.5625C6.1875 14.8125 6.5 15 6.875 15.1875C7.1875 15.3125 7.5625 15.4375 8.125 15.4375C8.6875 15.4375 8.875 15.5 10.25 15.5C11.6875 15.5 11.875 15.5 12.4375 15.4375C13 15.375 13.375 15.3125 13.6875 15.1875C14 15.0625 14.3125 14.875 14.625 14.5625C14.9375 14.25 15.125 14 15.25 13.625C15.375 13.3125 15.5 12.875 15.5 12.375C15.5625 11.8125 15.5625 11.625 15.5625 10.1875C15.5625 8.75 15.5625 8.625 15.5 8.0625C15.5 7.5 15.375 7.125 15.25 6.8125C15.125 6.4375 14.9375 6.1875 14.625 5.875C14.375 5.625 14.0625 5.4375 13.6875 5.25C13.375 5.125 12.9375 5.0625 12.4375 5C11.8125 5 11.625 5 10.1875 5ZM9.75 5.9375C9.875 5.9375 10.0625 5.9375 10.1875 5.9375C11.5625 5.9375 11.75 5.9375 12.3125 5.9375C12.8125 5.9375 13.0625 6.0625 13.25 6.125C13.5 6.25 13.6875 6.375 13.875 6.5C14.0625 6.625 14.1875 6.8125 14.25 7.125C14.3125 7.3125 14.4375 7.5625 14.4375 8.0625C14.5 8.625 14.5 8.8125 14.5 10.1875C14.5 11.5625 14.5 11.75 14.4375 12.3125C14.4375 12.8125 14.3125 13.125 14.25 13.3125C14.1875 13.5625 14.0625 13.6875 13.875 13.9375C13.6875 14.125 13.5 14.1875 13.25 14.3125C13.0625 14.375 12.8125 14.5 12.3125 14.5C11.75 14.5 11.5625 14.5625 10.1875 14.5625C8.8125 14.5625 8.625 14.5625 8.0625 14.5C7.5625 14.5 7.3125 14.375 7.125 14.3125C6.875 14.1875 6.6875 14.125 6.5 13.9375C6.3125 13.75 6.1875 13.5625 6.125 13.3125C6.0625 13.125 6 12.875 5.9375 12.3125C5.9375 11.75 5.9375 11.625 5.9375 10.1875C5.9375 8.8125 5.9375 8.625 5.9375 8.0625C6 7.5625 6.0625 7.3125 6.125 7.125C6.25 6.875 6.375 6.6875 6.5 6.5C6.625 6.3125 6.875 6.1875 7.125 6.125C7.3125 6.0625 7.5625 5.9375 8.0625 5.9375C8.5625 5.9375 8.75 5.9375 9.75 5.9375ZM13 6.8125C12.6875 6.8125 12.375 7.0625 12.375 7.4375C12.375 7.8125 12.625 8.0625 13 8.0625C13.375 8.0625 13.625 7.8125 13.625 7.4375C13.625 7.0625 13.3125 6.8125 13 6.8125ZM10.1875 7.5C8.75 7.5 7.5 8.6875 7.5 10.1875C7.5 11.6875 8.6875 12.875 10.1875 12.875C11.6875 12.875 12.875 11.6875 12.875 10.1875C12.875 8.6875 11.6875 7.5 10.1875 7.5ZM10.1875 8.4375C11.125 8.4375 11.9375 9.1875 11.9375 10.1875C11.9375 11.1875 11.1875 11.9375 10.1875 11.9375C9.25 11.9375 8.4375 11.1875 8.4375 10.1875C8.4375 9.1875 9.25 8.4375 10.1875 8.4375Z"></path></svg>
+                            <svg style="margin-left: 5px;" xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="22" height="22" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 cvuzKA"><path d="M0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10ZM10.0625 8.125V8.5L9.6875 8.4375C8.3125 8.25 7.125 7.6875 6.125 6.6875L5.625 6.1875L5.5 6.5625C5.25 7.375 5.375 8.25 5.9375 8.8125C6.25 9.125 6.1875 9.1875 5.6875 9C5.5 8.9375 5.375 8.875 5.3125 8.9375C5.25 9 5.4375 9.6875 5.5625 9.9375C5.75 10.3125 6.1875 10.6875 6.5625 10.875L6.9375 11.0625H6.5C6.0625 11.0625 6.0625 11.0625 6.125 11.25C6.3125 11.75 6.875 12.25 7.5625 12.5L8 12.6875L7.625 12.9375C7 13.3125 6.3125 13.5 5.625 13.5C5.3125 13.5 5 13.5625 5 13.5625C5 13.625 5.9375 14.0625 6.4375 14.25C8.0625 14.75 9.9375 14.5 11.375 13.6875C12.375 13.0625 13.375 11.875 13.875 10.75C14.125 10.125 14.375 9 14.375 8.5C14.375 8.1875 14.4375 8.125 14.8125 7.6875C15.0625 7.4375 15.3125 7.1875 15.3125 7.0625C15.375 6.9375 15.375 6.9375 15 7.0625C14.375 7.3125 14.25 7.25 14.625 6.875C14.875 6.625 15.125 6.1875 15.125 6.0625C15.125 6.0625 15 6.0625 14.875 6.125C14.75 6.1875 14.4375 6.3125 14.1875 6.375L13.8125 6.5L13.5 6.25C13.3125 6.125 13 5.9375 12.875 5.9375C12.5 5.8125 11.9375 5.8125 11.5625 6C10.5625 6.25 10 7.1875 10.0625 8.125Z"></path></svg>
+                            <svg style="margin-left: 5px;" xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="22" height="22" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 cvuzKA"><path d="M0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10ZM15.1875 7.4375C15.0625 7 14.6875 6.625 14.25 6.5C13.4375 6.25 10.1875 6.25 10.1875 6.25C10.1875 6.25 6.9375 6.25 6.125 6.5C5.6875 6.625 5.3125 7 5.1875 7.4375C5 8.25 5 10 5 10C5 10 5 11.75 5.25 12.5625C5.375 13 5.75 13.375 6.1875 13.5C7 13.75 10.25 13.75 10.25 13.75C10.25 13.75 13.5 13.75 14.3125 13.5C14.75 13.375 15.125 13 15.25 12.5625C15.5 11.75 15.5 10 15.5 10C15.5 10 15.4375 8.25 15.1875 7.4375ZM9.25 11.75V8.5L11.875 10.125L9.25 11.75Z"></path></svg>
+                            <svg style="margin-left: 5px;" xmlns="http://www.w3.org/2000/svg" fill="#1C1C1C" width="22" height="22" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 cvuzKA"><path d="M0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10ZM10.75 15.4375V10.1875H12.1875L12.375 8.375H10.75V7.5C10.75 7.0625 10.8125 6.8125 11.5 6.8125H12.375V5H10.9375C9.1875 5 8.625 5.875 8.625 7.3125V8.375H7.5V10.1875H8.5625V15.4375C8.5625 15.4375 10.75 15.4375 10.75 15.4375Z"></path></svg>
+                        </div>
+                        <div class="foot-stores">
+                            <img style="width: 135px; height: 35px; margin-top: 20px;" alt="image" src="https://b.zmtcdn.com/data/webuikit/9f0c85a5e33adb783fa0aef667075f9e1556003622.png" loading="lazy" class="sc-s1isp7-5 fyZwWD">
+                        </div>
+                        <div class="foot-stores">
+                            <img style="width: 135px; height: 35px; margin-top: 10px;" alt="image" src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png" loading="lazy" class="sc-s1isp7-5 fyZwWD">
+                        </div>
+                    </div>
+                    <div class="foot-discription">
+                        <p>By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners.2008-2024 © Zomato™ Ltd. All rights reserved.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>
